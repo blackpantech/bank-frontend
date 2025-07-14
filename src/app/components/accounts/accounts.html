@@ -1,0 +1,6 @@
+@for (account of accounts; track account.id) {
+    <h2>
+        Account number {{ account.id }}: {{account.balance  | currency: 'EUR' }}
+        <button (click)="openAccountDetails(account)"> > </button>
+    </h2>
+}

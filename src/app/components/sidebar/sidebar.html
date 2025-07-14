@@ -1,0 +1,14 @@
+<mat-drawer-container (backdropClick)="drawer.close(); isSidebarCollapsed = !isSidebarCollapsed">
+  <mat-drawer #drawer [opened]="!isSidebarCollapsed" mode="over" position="end">
+    <h1>Account number {{currentAccount.id}} - {{currentAccount.balance | currency: 'EUR' }}</h1>
+    @for (transaction of currentAccount.transactions; track transaction.id) {
+        <p [style]="{color: transaction.amount >= 0 ? 'green' : 'red'}">
+            {{transaction.amount | currency: 'EUR' }} - {{ transaction.date | date: 'short' }} - {{transaction.transactionType}}
+        </p>
+    }
+    <app-buttons-row (emitToUpdateAccounts)="updateAccounts($event)" [account]="currentAccount"/>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-accounts (openAccountDetailsEvent)="openAccountDetails($event)"/>
+  </mat-drawer-content>
+</mat-drawer-container>

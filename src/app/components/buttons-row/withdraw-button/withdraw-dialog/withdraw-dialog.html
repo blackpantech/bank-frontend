@@ -1,0 +1,9 @@
+<h1 mat-dialog-title>Withdraw from account number {{ data.account.id }}</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.amount">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data.amount" cdkFocusInitial>Ok</button>
+</div>

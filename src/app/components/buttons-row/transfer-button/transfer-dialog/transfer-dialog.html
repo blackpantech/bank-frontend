@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Transfer from account number {{ data.account.id }}</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <input matInput [(ngModel)]="data.amount">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-select placeholder="Select another account" [(ngModel)]="data.selectedAccount">
+            <mat-option *ngFor="let account of accounts" [value]="account">
+                Account number {{ account.id }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>
